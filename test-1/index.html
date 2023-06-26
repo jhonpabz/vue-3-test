@@ -38,9 +38,14 @@
     <div id="app">
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books" :class="{ fav: book.isFav }">
+          <li
+            v-for="(book, index) in books"
+            :class="{ fav: book.isFav }"
+            @click="handleFav(index)"
+          >
             <h3>{{ book.title }}</h3>
             <p>{{ book.author }}</p>
+            <!-- <p>{{ book.index }}</p> -->
           </li>
         </ul>
       </div>
