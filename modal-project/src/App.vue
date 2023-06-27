@@ -1,11 +1,14 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal 
-    :header="title" 
-    :content="content"
-    theme="sale"
-    :isShow="showModal"
-  />
+  <div v-if="showModal">
+    <Modal 
+      :header="title" 
+      :content="content"
+      theme="sale"
+      @close="toggleModal"
+    />
+  </div>
+<button @click="toggleModal">Show</button>
 </template>
 
 <script>
@@ -20,9 +23,14 @@ export default {
       title: 'Test Vue App',
       header: 'Title test',
       content: 'Content test',
-      showModal: true,
+      showModal: false,
     };
   },
+ methods: {
+   toggleModal () {
+    this.showModal = !this.showModal
+  }
+ }
 };
 </script>
 
