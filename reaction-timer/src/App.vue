@@ -1,5 +1,6 @@
 <template>
-<h1>zxcv</h1>
+<h1>Reaction Timer</h1>
+<button @click="start">Start</button>
 </template>
 
 <script>
@@ -7,8 +8,18 @@
 
 export default {
   name: 'App',
-  components: {
-
+  components: {},
+  data () {
+    return {
+      isPlaying: false,
+      delay: null
+    }
+  },
+  methods: {
+    start () {
+      this.delay = 2000 + Math.random() + 5000
+      this.isPlaying = true
+    }
   }
 }
 </script>
