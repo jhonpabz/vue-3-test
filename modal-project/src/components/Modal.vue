@@ -1,5 +1,5 @@
 <template>
-<div class="backdrop">
+<div class="backdrop" v-if="isShow">
     <div class="modal" :class="{ sale: theme === 'sale'}">
         <h1>{{ header }}</h1>
         <p>{{ content }}</p>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    props: ['header', 'content', 'theme']
+    props: ['header', 'content', 'theme', 'isShow']
 }
 </script>
 

@@ -4,6 +4,7 @@
     :header="title" 
     :content="content"
     theme="sale"
+    :isShow="showModal"
   />
 </template>
 
@@ -19,6 +20,7 @@ export default {
       title: 'Test Vue App',
       header: 'Title test',
       content: 'Content test',
+      showModal: true,
     };
   },
 };
