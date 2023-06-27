@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <div v-if="showModal">
+  <teleport to="#modals" v-if="showModal">
     <Modal 
       theme="sale"
       @close="toggleModal"
@@ -14,13 +14,13 @@
             <a href="#">Logout</a>
           </div>
         </template>
-        
+
         <h1>{{ header }}</h1>
         <p>{{ content }}</p>
     </Modal>
-  </div>
+  </teleport>
 <button @click="toggleModal">Show Modal</button>
-<button @click="toggleModalTwo">Show 2nd Modal</button>
+<button @click.ctrl="toggleModalTwo">Show 2nd Modal (ctrl)</button>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
   },
  methods: {
    toggleModal () {
-     this.modal = 1
+    this.modal = 1
     this.showModal = !this.showModal
   },
   toggleModalTwo () {
