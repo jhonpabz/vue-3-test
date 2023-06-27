@@ -5,6 +5,10 @@
       theme="sale"
       @close="toggleModal"
     >
+        <template v-slot:links>
+          <a href="#">Sign In</a>
+          <a href="#">Register</a>
+        </template>
         <h1>{{ header }}</h1>
         <p>{{ content }}</p>
     </Modal>

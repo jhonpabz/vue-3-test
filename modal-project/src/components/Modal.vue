@@ -1,7 +1,8 @@
 <template>
 <div class="backdrop" @click.self="$emit('close')"> <!-- .self: For backfdrop only -->
-    <div class="modal" :class="{ sale: theme === 'sale'}">
-        <slot />
+    <div class="modal" :class="{ sale: theme === 'sale'}"> 
+        <slot>Default content</slot> <!-- Only shows when slot has no value -->
+        <slot name="links"></slot>
     </div>
 </div>
 </template>
