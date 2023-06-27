@@ -3,6 +3,7 @@
   <Modal 
     :header="title" 
     :content="content"
+    theme="sale"
   />
 </template>
 
