@@ -3,13 +3,14 @@
     <div class="modal" :class="{ sale: theme === 'sale'}"> 
         <slot>Default content</slot> <!-- Only shows when slot has no value -->
         <slot name="links"></slot>
+   
     </div>
 </div>
 </template>
 
 <script>
 export default {
-    props: ['theme'],
+    props: ['theme', 'modal'],
     // methods: {
     //     closeModal() {
     //         this.$emit('close')

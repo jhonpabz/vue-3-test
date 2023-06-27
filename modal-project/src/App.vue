@@ -6,14 +6,21 @@
       @close="toggleModal"
     >
         <template v-slot:links>
-          <a href="#">Sign In</a>
-          <a href="#">Register</a>
+          <div  v-if="modal === 1">
+            <a href="#">Sign In</a>
+            <a href="#">Register</a>
+          </div>
+          <div  v-if="modal === 2">
+            <a href="#">Logout</a>
+          </div>
         </template>
+        
         <h1>{{ header }}</h1>
         <p>{{ content }}</p>
     </Modal>
   </div>
-<button @click="toggleModal">Show</button>
+<button @click="toggleModal">Show Modal</button>
+<button @click="toggleModalTwo">Show 2nd Modal</button>
 </template>
 
 <script>
@@ -28,12 +35,18 @@ export default {
       title: 'Test Vue App',
       header: 'Title test',
       content: 'Content test',
+      modal: 1,
 
       showModal: false,
     };
   },
  methods: {
    toggleModal () {
+     this.modal = 1
+    this.showModal = !this.showModal
+  },
+  toggleModalTwo () {
+    this.modal = 2
     this.showModal = !this.showModal
   },
  }
@@ -42,7 +55,7 @@ export default {
 
 // Challenge
 //   - create an extra button to open a different modal
-//   - use hte same modal component but pass in a different template (slot)
+//   - use the same modal component but pass in a different template (slot)
 //   - use a different method (e.g. toggleModalTwo) and data (e.g. showModalTwo)
 
 </script>
