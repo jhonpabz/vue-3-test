@@ -1,10 +1,24 @@
 <template>
-  <div class="block">Click Me</div>
+  <div class="block" v-if="showBLock">Click Me</div>
+  <h1>{{ delay }}</h1>
 </template>
 
 <script>
 export default {
   props: ['delay'],
+  data() {
+    return {
+      showBLock: false,
+    };
+  },
+  mounted() {
+    console.log('Mounted');
+    setTimeout(() => {
+      this.showBLock = true;
+      console.log(`Delay for ${this.delay}`);
+    }, this.delay);
+  },
+  updated() {},
 };
 </script>
 
