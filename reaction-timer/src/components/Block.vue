@@ -1,6 +1,5 @@
 <template>
-  <div class="block" v-if="showBLock">Click Me</div>
-  <h1>{{ delay }}</h1>
+  <div class="block" v-if="showBLock" @click="stopTimer">Click Me</div>
 </template>
 
 <script>
@@ -9,16 +8,27 @@ export default {
   data() {
     return {
       showBLock: false,
+      timer: null,
+      reactionTime: 0,
     };
   },
   mounted() {
-    console.log('Mounted');
     setTimeout(() => {
       this.showBLock = true;
-      console.log(`Delay for ${this.delay}`);
+      this.startTimer();
     }, this.delay);
   },
-  updated() {},
+  methods: {
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.reactionTime += 10;
+      }, 10);
+    },
+    stopTimer() {
+      clearInterval(this.timer);
+      console.log('Reaction Time: ', this.reactionTime);
+    },
+  },
 };
 </script>
 
